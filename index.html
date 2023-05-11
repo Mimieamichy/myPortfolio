@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>My Portfolio</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .box{
+     display: flex;
+      gap: 3rem;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+    }
+    .sidePic {
+      position: sticky;
+      position: -webkit-sticky;
+      width: 100%;
+      height: 50px;
+      top: 0;
+      
+      
+      
+      
+    }
+   
+    
+    .sidePic > img{
+      object-fit: cover;
+      position: sticky;
+      position: -webkit-sticky;
+
+    }
+      
+
+    #menuBar{
+      width: 60px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      z-index: 100;
+      border-radius: 10%;
+      
+
+    }
+
+    .menu-box{
+      width: 0;
+      height: 0;
+      background: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom-left-radius: 100%;
+      transition: width 0.5s, height 0.5s, border-radius 0.5s;
+    }
+
+    .menu-box.open-menu{
+      width: 60%;
+      height: 100vh;
+      border-bottom-left-radius: 0;
+    }
+
+    
+    .menu-box ul li {
+      list-style: none;
+      margin: 20px;
+      text-align: center;
+      
+    }
+    .menu-box ul li a{
+      display: inline-block;
+      text-decoration: none;
+      color: gray;
+      font-size: 50px;
+      font-weight: 600;
+      position: relative;
+      font-family: 'Prompt', sans-serif;
+      font-family: 'Roboto', sans-serif;
+    }
+    .menu-box ul li a:hover{
+      color: #fff;
+
+    }
+    #home{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Prompt', sans-serif;
+      
+      padding: 150px;
+      margin: 50px;
+      flex-direction: column;
+      /*height: 35%;*/
+      
+
+    }
+
+    .myName{
+      font-size: 50px;
+      text-align: center;
+      font-weight: 600;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .proff{
+      font-family: 'Prompt', sans-serif;
+      text-align: center;
+      font-weight: lighter;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .button{
+      font-family: 'Prompt', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      background-color: lightgrey;
+      border: none;
+      color: #000;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      word-spacing: 2px;
+
+    }
+    .button:hover{
+      background-color: grey;
+    }
+
+    .aboutMe{
+      justify-content: left;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      
+     
+      
+    }
+
+    .abtMe{
+      font-family: 'Open Sans', sans-serif;
+      font-family: 'Prompt', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      font-size: 50px;
+      text-align: left;
+      margin: 10px;
+      padding: 30px;
+      justify-content: left;
+      font-weight: lighter;
+
+    }
+
+    .myDetails{
+      font-family: 'Prompt', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      justify-content: left;
+      
+      font-weight: lighter;
+      margin: 30px;
+      padding: 50px 30px;
+      line-height: 1.8;
+      text-align: justify;
+      text-justify: inter-word;
+
+    }
+
+    .mySkills{
+      font-family: 'Open Sans', sans-serif;
+      font-family: 'Prompt', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      font-size: 50px;
+      padding: 30px;
+      margin: 10px;
+      font-weight: lighter;
+
+      
+    }
+
+  
+
+    .container{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 1rem;
+     
+      
+      
+    }
+    .container > div{
+      background-color: black;
+      text-align: center;
+      padding: 1rem;
+      font-size: 30px; 
+      color: white;
+      border-radius: 25px;
+      
+      
+      
+    }
+
+  .container > div::before {
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+   }
+
+  .container > div {
+    display: grid;
+  }
+  .container > div::before,
+  .container > div > img {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  .container > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 25px;
+  }
+
+  #contact{
+    justify-content: left;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    
+    padding: 10px;
+    margin: 10px;
+
+  }
+
+  .contMe{
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Prompt', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    text-align: left;
+    margin: 10px;
+    padding: 30px;
+    justify-content: left;
+    font-weight: lighter;
+
+  }
+
+  .contactMe li{
+    list-style-type: none;
+    margin: 20px;
+    text-align: left;
+    font-size: 20px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    word-spacing: 30px;
+    font-family: 'Prompt', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    text-justify: inter-word;
+
+  }
+  .contactMe li a{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+   
+    font-family: 'Prompt', sans-serif;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .msg{
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Prompt', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    padding: 30px;
+    margin: 10px;
+    font-weight: lighter;
+
+  }
+
+  input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  .send-msg{
+    font-family: 'Prompt', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    background-color: lightgrey;
+    border: none;
+    color: #000;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    word-spacing: 2px;
+
+  }
+  .send-msg:hover{
+    background-color: grey;
+
+  }
+  footer{
+    justify-content: left;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: lightgrey;
+    color: white;
+    padding: 64px;
+    margin-top: 30px;
+    margin-left: 0;
+    position: relative;
+    text-align: center;
+   
+  }
+
+  .footer {
+    color: gray;
+   
+    padding: 5px;
+    margin: 20px;
+    
+    
+
+  }
+  a i:hover{
+    opacity: 0.5;
+  }
+
+ 
+     
+  </style>
+</head>
+<body>
+
+
+  <div class="box">
+
+
+    <div class="sidePic">
+      <img src="amichy.jpg" alt="mimie" class="mimieP">
+      </div>
+      
+    <img src="menuOpen.png" alt="menuImg" id="menuBar">
+      
+    <div class="menu-box" id="menuBox">
+      <ul class="navItems">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#abt" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+
+
+    <div class="details">
+      <div id="home">
+      <h1 class="myName">Miracle Ezeh</h1>
+      <p class="proff">SoftWare Developer and Web Designer</p>
+       <a href="my_resume.pdf" download class="button"><i class="fa-solid fa-download "></i> Download Resume</a>
+    </div>
+       
+    <label id="abt">
+      <div class="aboutMe">
+      <h2 class="abtMe" >About Me</h2>
+      <p class="myDetails">I am a software developer with over one year of experience in creating web applications.
+       I enjoy working with different technologies and frameworks, such as 
+       React, Php and Node.js. I am passionate about 
+       solving complex problems and delivering high-quality products that
+        meet the needs of the users. I am always eager to learn new skills
+         and improve my existing ones. I am also a team player who values 
+         collaboration and communication.</p>
+         
+         </div>
+        </label>
+
+
+         <label id="skills">
+         <h2 class="mySkills">My Skills</h2>
+         <div class="container">
+          <div><img src="logo/IMG_20230506_160941.png" alt="html"> HTML</div>
+          <div><img src="logo/IMG_20230506_160818.png" alt="css"> CSS</div>
+          <div><img src="logo/IMG_20230506_160903.jpg" alt="js"> JS</div>
+          <div><img src="logo/IMG_20230506_161052.png" alt="ReactJS"> ReactJS</div>
+          <div><img src="logo/IMG_20230506_160504.png" alt="figma"> Figma</div>
+          <div><img src="logo/IMG_20230506_160320.jpg" alt="Bootstrap"> Bootstrap</div>
+          <div><img src="logo/IMG_20230506_160246.png" alt="php"> PHP</div>
+          <div><img src="logo/IMG_20230506_160736.png" alt="NodeJS"> NodeJS</div>
+          <div><img src="logo/IMG_20230506_160156.png" alt="github"> Git Hub</div>
+        
+         </div>
+        </label>
+        <label id="contact">
+          <h2 class="contMe">Contact Me</h2>
+          <ul class="contactMe">
+            <li class="contactMe"><i class="fa-solid fa-location-dot fa-1x"></i> Abuja,Nig</li>
+            <li class="contactMe"><i class="fa-solid fa-phone fa-1x"></i> 08065557468</li>
+            <li class="contactMe"><i class="fa-regular fa-envelope fa-1x"></i> <a href="mailto: amichy07@gmail.com"> amichy07@gmail.com</a></li>
+          </ul>
+        </label>
+
+          <form action="POST" target="_blank">
+            <h2 class="msg">Send me a Message</h2>
+           <p> <input type="text" id="name" name="name" placeholder="Name" required></p>
+           <p><input type="email" name="email" id="email" placeholder="Email" required></p>
+           <p> <input type="text" name="subject" id="subjet" placeholder="Subject" required></p>
+           <p><input type="text" name="message" id="message" placeholder="Message" required></p>
+           <button class="send-msg"><i class="fa-regular fa-paper-plane"></i> SEND MESSAGE</button>
+
+
+
+          </form>
+
+          <footer>
+            
+              <a href="https://web.facebook.com/mimieamichy.733" target="_blank" class="footer"><i class="fa-brands fa-facebook fa-3x" ></i></a>
+              <a href="https://twitter.com/js_mimie" target="_blank" class="footer"><i class="fa-brands fa-twitter fa-3x"></i></a>
+              <a href="https://github.com/Mimieamichy" target="_blank" class="footer"><i class="fa-brands fa-github fa-3x"></i></a>
+              <a href="https://wa.link/7v0b1s" target="_blank" class="footer"><i class="fa-brands fa-whatsapp fa-3x"></i></a>
+            
+          </footer>
+          </div>
+        
+
+      
+
+    
+
+  </div>
+  <script>
+    
+   let menuBox = document.getElementById("menuBox");
+    let menuBar = document.getElementById("menuBar");
+    
+
+    menuBar.onclick = function(){
+      
+      menuBox.classList.toggle("open-menu");
+
+      if(menuBox.classList.contains("open-menu")){
+        
+        menuBar.src = "closeImg1.png";
+       
+
+        }
+      
+      else{
+        
+        menuBar.src = "menuOpen.png";
+       
+       
+
+        }
+     
+
+    }
+
+    document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", ()=> {
+          menuBar.classList.remove("open-menu");
+          menuBox.classList.remove("open-menu");
+          menuBar.src = "menuOpen.png";
+          
+          
+        }))
+       
+
+
+
+  
+    
+
+  </script>
+</body>
+</html>
