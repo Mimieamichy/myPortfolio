@@ -481,7 +481,7 @@
            <p><input type="email" name="email" id="email" placeholder="Email" required></p>
            <p> <input type="text" name="subject" id="subjet" placeholder="Subject" required></p>
            <p><input type="text" name="message" id="message" placeholder="Message" required></p>
-           <button class="send-msg"><i class="fa-regular fa-paper-plane"></i> SEND MESSAGE</button>
+           <button class="send-msg" onclick="showAlert()"><i class="fa-regular fa-paper-plane"></i> SEND MESSAGE</button>
 
 
 
@@ -540,6 +540,11 @@
           
           
         }))
+
+        function showAlert() {
+          alert(`Thanks For Contacting Us, We Will Get Back To You Shortly`);
+        }
+
        
 
 
